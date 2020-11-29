@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "274013279121",
+    "firebase_url": "https://jalgasplan.firebaseio.com",
+    "project_id": "jalgasplan",
+    "storage_bucket": "jalgasplan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274013279121:android:f72e1875b12166d44b4030",
+        "android_client_info": {
+          "package_name": "com.example.jalgasplan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "274013279121-t6sagpdkeof00ragjdrqv9mg4s6pamuh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jalgasplan",
+            "certificate_hash": "346a32d7d8f959a8bee76d452c326187b1c4331c"
+          }
+        },
+        {
+          "client_id": "274013279121-g8f29kb59slkes7480s8eltikqtfh2e6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrFz89qHPkY3YHBbN1ifF_u96C1Bb-Q_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274013279121-g8f29kb59slkes7480s8eltikqtfh2e6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

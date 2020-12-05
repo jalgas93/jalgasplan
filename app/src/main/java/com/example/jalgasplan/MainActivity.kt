@@ -2,6 +2,9 @@ package com.example.jalgasplan
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.Navigation
@@ -17,6 +20,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
+
+
 // Create a new user with a first and last name
 //        val user: MutableMap<String, Any> = HashMap()
 //        user["first"] = "Jalgas"

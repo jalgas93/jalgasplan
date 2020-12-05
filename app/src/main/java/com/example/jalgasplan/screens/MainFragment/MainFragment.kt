@@ -5,15 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jalgasplan.R
-import com.example.jalgasplan.adapter.Main_adapter
+import com.example.jalgasplan.adapter.General_adapter
 import com.example.jalgasplan.databinding.FragmentMainBinding
 import com.example.jalgasplan.model.Model
-import com.example.jalgasplan.utils.DataSource
-import kotlinx.android.synthetic.main.item_main.*
 
 
 class MainFragment : Fragment() {
@@ -21,9 +22,6 @@ class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val mBinding get() = _binding!!
 
-    private lateinit var mAdapter:Main_adapter
-    private lateinit var mRecyclerView: RecyclerView
-    private lateinit var mObserverList: Observer<List<Model>>
 
 
     override fun onCreateView(
@@ -35,10 +33,73 @@ class MainFragment : Fragment() {
         return mBinding?.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initialization()
-        addDataSet()
+
+
+        var value = arrayOf<String>("Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь")
+       
+        val mListView = view.findViewById<ListView>(R.id.ListView)
+        var  adapter = ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_1,value)
+
+        mListView.adapter = adapter
+
+        mListView.setOnItemClickListener { parent, view, position, id ->
+            if (position == 0) {
+                Toast.makeText(requireContext(), value[0], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 1) {
+                Toast.makeText(requireContext(), value[1], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 2) {
+                Toast.makeText(requireContext(), value[2], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 3) {
+                Toast.makeText(requireContext(), value[3], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 4) {
+                Toast.makeText(requireContext(), value[4], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 5) {
+                Toast.makeText(requireContext(), value[5], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 6) {
+                Toast.makeText(requireContext(), value[6], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 7) {
+                Toast.makeText(requireContext(), value[7], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 8) {
+                Toast.makeText(requireContext(), value[8], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 9) {
+                Toast.makeText(requireContext(), value[9], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 10) {
+                Toast.makeText(requireContext(), value[10], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+            if (position == 11) {
+                Toast.makeText(requireContext(), value[11], Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_mainFragment_to_generalFragment)
+            }
+
+
+        }
+
+
+
     }
 
     override fun onStart() {
@@ -46,23 +107,7 @@ class MainFragment : Fragment() {
 
     }
 
-        private fun addDataSet(){
-            var data  = DataSource.createDataSet()
-            mAdapter.submitlist(data)
-        }
 
-    private fun initialization() {
-        setHasOptionsMenu(true)
-
-       mAdapter = Main_adapter()
-        mRecyclerView = mBinding.recycler
-        mRecyclerView.adapter = mAdapter
-
-
-
-
-
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

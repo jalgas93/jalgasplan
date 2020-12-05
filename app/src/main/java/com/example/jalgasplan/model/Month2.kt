@@ -1,6 +1,6 @@
 package com.example.jalgasplan.model
 
-data class Month (
+class Month2 (
 
     var id_name :String,
     var name:String,

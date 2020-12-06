@@ -1,6 +1,7 @@
 package com.example.jalgasplan.model
 
 data class Model (
+    val id:String = "",
     val id_name: String = "",
     val name: String = "",
     var idFirebase:String = "",

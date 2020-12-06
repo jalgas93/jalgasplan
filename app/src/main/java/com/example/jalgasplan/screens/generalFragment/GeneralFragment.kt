@@ -22,6 +22,7 @@ import com.example.jalgasplan.adapter.General_adapter
 import com.example.jalgasplan.database.FirebaseRepository
 import com.example.jalgasplan.databinding.FragmentGeneralBinding
 import com.example.jalgasplan.model.Model
+import com.example.jalgasplan.screens.MainFragment.MainFragmentDirections
 import com.example.jalgasplan.utils.DataSource
 import com.example.jalgasplan.utils.REPOSITORY
 import com.google.firebase.firestore.*
@@ -52,13 +53,18 @@ class GeneralFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         REPOSITORY = FirebaseRepository()
+
         initialization()
-        database = FirebaseFirestore.getInstance()
-             mViewModel.getData(args.id)
-        Log.i("jalgas",args.id)
+        args.id?.let { mViewModel.getData(it) }
         fl_button.setOnClickListener {
-            findNavController().navigate(R.id.action_generalFragment_to_addDataFragment)
+            val action = GeneralFragmentDirections.actionGeneralFragmentToAddDataFragment(args.id)
+            findNavController().navigate(action)
         }
+    }
+    override fun onResume() {
+        super.onResume()
+        database = FirebaseFirestore.getInstance()
+
     }
         private fun initialization() {
         setHasOptionsMenu(true)
@@ -66,18 +72,20 @@ class GeneralFragment() : Fragment() {
         mAdapter = General_adapter()
         mRecyclerView = mBinding!!.RvGeneral
         mRecyclerView.adapter = mAdapter
-        // mRecyclerView.adapter = mAdapter
-        mObserverList = Observer {
+           mObserverList = Observer {
             val list = it
             mAdapter.submitlist(list)
+            Log.d("jalgas4",list.toString())
         }
             mViewModel = ViewModelProvider(this, generalFactory).get(GeneralFragmentViewModel::class.java)
         mViewModel.allModels.observe(requireActivity(), mObserverList)
+
     }
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-        mViewModel.allModels.removeObserver(mObserverList)
-        mRecyclerView.adapter = null
+       // mViewModel.allModels.removeObserver(mObserverList)
+      // mRecyclerView.adapter = null
+
     }
 }

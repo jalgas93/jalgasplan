@@ -61,7 +61,7 @@ class MainFragment : Fragment() {
         mListView.setOnItemClickListener { parent, view, position, id ->
             if (position == 0) {
                 Toast.makeText(requireContext(), value[0], Toast.LENGTH_SHORT).show()
-                val action = MainFragmentDirections.actionMainFragmentToGeneralFragment("jalgass")
+                val action = MainFragmentDirections.actionMainFragmentToGeneralFragment("Yanvar")
                 findNavController().navigate(action)
             }
             if (position == 1) {

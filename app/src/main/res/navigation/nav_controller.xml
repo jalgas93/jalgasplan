@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_generalFragment_to_addDataFragment"
             app:destination="@id/addDataFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/addDataFragment"

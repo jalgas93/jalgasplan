@@ -1,34 +1,17 @@
 package com.example.jalgasplan.screens.addData
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
-import com.example.jalgasplan.MainActivity
 import com.example.jalgasplan.R
 import com.example.jalgasplan.databinding.FragmentAddDataBinding
 import com.example.jalgasplan.model.Model
-import com.example.jalgasplan.model.Month
-import com.example.jalgasplan.model.Month2
-import com.example.jalgasplan.screens.generalFragment.SwipeToDelete
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_add_data.*
-import kotlinx.android.synthetic.main.fragment_general.*
-import kotlinx.android.synthetic.main.fragment_start.view.*
-import kotlinx.android.synthetic.main.item_main.*
-import kotlinx.android.synthetic.main.item_main.address_name
-import kotlinx.android.synthetic.main.item_main.id_name
-import kotlinx.android.synthetic.main.item_main.name
-import java.lang.Exception
 
 
 class AddDataFragment : Fragment() {
@@ -43,7 +26,7 @@ class AddDataFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-             _binding = FragmentAddDataBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentAddDataBinding.inflate(layoutInflater, container, false)
         return mBinding.root
     }
 
@@ -68,6 +51,7 @@ class AddDataFragment : Fragment() {
 
         }
     }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

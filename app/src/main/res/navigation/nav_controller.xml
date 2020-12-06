@@ -42,6 +42,12 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null"/>
+        <action
+            android:id="@+id/action_generalFragment_to_konturFragment"
+            app:destination="@id/konturFragment" />
+        <action
+            android:id="@+id/action_generalFragment_to_electroFragment2"
+            app:destination="@id/electroFragment2" />
     </fragment>
     <fragment
         android:id="@+id/addDataFragment"
@@ -56,5 +62,61 @@
         <action
             android:id="@+id/action_addDataFragment_to_generalFragment"
             app:destination="@id/generalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/konturFragment"
+        android:name="com.example.jalgasplan.screens.kontur.KonturFragment"
+        android:label="fragment_kontur"
+        tools:layout="@layout/fragment_kontur" >
+        <action
+            android:id="@+id/action_konturFragment_to_generalFragment"
+            app:destination="@id/generalFragment" />
+        <argument
+            android:name="id_argument"
+            app:argType="string"
+            android:defaultValue="null" />
+    </fragment>
+    <fragment
+        android:id="@+id/electroFragment2"
+        android:name="com.example.jalgasplan.screens.electro.ElectroFragment"
+        android:label="fragment_electro"
+        tools:layout="@layout/fragment_electro" >
+        <action
+            android:id="@+id/action_electroFragment2_to_generalFragment"
+            app:destination="@id/generalFragment" />
+        <argument
+            android:name="id_electro"
+            android:defaultValue="null"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.example.jalgasplan.screens.contact.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" >
+        <action
+            android:id="@+id/action_contactFragment_to_main_contact_Fragment"
+            app:destination="@id/main_contact_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addToMainContactFragment"
+        android:name="com.example.jalgasplan.screens.appToMainContactFragment.AddToMainContactFragment"
+        android:label="fragment_add_to_main_contact"
+        tools:layout="@layout/fragment_add_to_main_contact" >
+        <action
+            android:id="@+id/action_addToMainContactFragment_to_main_contact_Fragment"
+            app:destination="@id/main_contact_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_contact_Fragment"
+        android:name="com.example.jalgasplan.screens.contact.Main_contact_Fragment"
+        android:label="fragment_main_contact_"
+        tools:layout="@layout/fragment_main_contact_" >
+        <action
+            android:id="@+id/action_main_contact_Fragment_to_addToMainContactFragment"
+            app:destination="@id/addToMainContactFragment" />
+        <action
+            android:id="@+id/action_main_contact_Fragment_to_contactFragment2"
+            app:destination="@id/contactFragment" />
     </fragment>
 </navigation>

@@ -12,4 +12,24 @@
     <string name="toast_wrong_enter">Введите пароль и почту</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sideName">Название БС</string>
+    <string name="fider1">Фидер-1</string>
+    <string name="tp1">ТП-1</string>
+    <string name="fider2">Фидер-2</string>
+    <string name="tp2">ТП-2</string>
+    <string name="upravlenie">Управление РЭС</string>
+    <string name="res">РЭС</string>
+    <string name="resMobile_1">РЭС Uzmobile-1</string>
+    <string name="resMobile_2">РЭС Uzmobile-2</string>
+    <string name="rut_1">РУТ-1</string>
+    <string name="rut_2">РУТ-2</string>
+    <string name="master_1">Мастер участка 1</string>
+    <string name="master_2">Мастер участка 2</string>
+    <string name="masterName_1">М/уч имя</string>
+    <string name="masterName_2">М/уч-2 имя</string>
+    <string name="oxranaName">Имя охраны</string>
+    <string name="oxrana">Охрана</string>
+    <string name="add">Добавить</string>
+    <string name="zavxozName">Имя Завхоза</string>
+    <string name="zavxoz">Завхоз</string>
 </resources>

@@ -38,7 +38,7 @@ class AddDataFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initialization()
-        //args.id?.let { mViewModel.(it) }
+        //args.id.let { mViewModel.(it) }
         add.setOnClickListener {
             initialization()
             val action = AddDataFragmentDirections.actionAddDataFragmentToGeneralFragment(args.id)

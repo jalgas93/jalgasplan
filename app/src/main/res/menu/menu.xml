@@ -13,15 +13,17 @@ android:icon="@drawable/home_24"
         android:icon="@drawable/cool2"
         />
     <item
-        android:id="@+id/electro"
+        android:id="@+id/electroFragment2"
     android:title="Electro Oborudovanie"
-        android:icon="@drawable/electro"/>
+        android:icon="@drawable/electro"
+        />
     <item
-        android:id="@+id/Kontur"
+        android:id="@+id/konturFragment"
     android:title="Kontur"
+        android:icon="@drawable/signal__antena"
     />
     <item
-        android:id="@+id/contact"
+        android:id="@+id/contactFragment"
         android:title="Contact"
         android:icon="@drawable/contact"/>
         />

@@ -31,7 +31,7 @@ import kotlinx.android.synthetic.main.fragment_general.*
 
 class GeneralFragment() : Fragment() {
 
-    private val args:GeneralFragmentArgs by navArgs()
+    private val args: GeneralFragmentArgs by navArgs()
     private lateinit var database: FirebaseFirestore
     private var _binding: FragmentGeneralBinding? = null
     private val mBinding get() = _binding
@@ -61,31 +61,34 @@ class GeneralFragment() : Fragment() {
             findNavController().navigate(action)
         }
     }
+
     override fun onResume() {
         super.onResume()
         database = FirebaseFirestore.getInstance()
-
     }
-        private fun initialization() {
+
+    private fun initialization() {
         setHasOptionsMenu(true)
         generalFactory = GeneralFactory()
         mAdapter = General_adapter()
         mRecyclerView = mBinding!!.RvGeneral
         mRecyclerView.adapter = mAdapter
-           mObserverList = Observer {
+        mObserverList = Observer {
             val list = it
             mAdapter.submitlist(list)
-            Log.d("jalgas4",list.toString())
+            Log.d("jalgas4", list.toString())
         }
-            mViewModel = ViewModelProvider(this, generalFactory).get(GeneralFragmentViewModel::class.java)
+        mViewModel =
+            ViewModelProvider(this, generalFactory).get(GeneralFragmentViewModel::class.java)
         mViewModel.allModels.observe(requireActivity(), mObserverList)
 
     }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-       // mViewModel.allModels.removeObserver(mObserverList)
-      // mRecyclerView.adapter = null
+        mViewModel.allModels.removeObserver(mObserverList)
+        mRecyclerView.adapter = null
 
     }
 }

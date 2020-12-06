@@ -4,6 +4,8 @@ import android.media.midi.MidiOutputPort
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.jalgasplan.model.Contact
+import com.example.jalgasplan.model.Main_contact_model
 import com.example.jalgasplan.model.Model
 import com.example.jalgasplan.repository.Repository
 import com.example.jalgasplan.utils.*
@@ -58,6 +60,20 @@ class FirebaseRepository : Repository {
 
     override fun signOut() {
         AUTH.signOut()
+    }
+
+    override suspend fun insertContact(mainContactModel: Main_contact_model, id: String) {
+        val document = database.collection(id).document()
+        mainContactModel.idContact_firebase = document.id
+        val set = document.set(mainContactModel)
+        set.addOnSuccessListener { documnetReference->
+            Log.i("jalgas10","addMainContact")
+        }
+            .addOnFailureListener {e->
+                Log.i("jalgas10","ошибка addMainContact")
+
+
+            }
     }
 
 

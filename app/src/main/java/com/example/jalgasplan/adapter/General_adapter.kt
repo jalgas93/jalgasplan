@@ -12,15 +12,15 @@ import com.example.jalgasplan.model.Month2
 import kotlinx.android.synthetic.main.item_main.view.*
 
 
-class General_adapter(var list:ArrayList<Month2>) : RecyclerView.Adapter<General_adapter.mainViewHolder>() {
+class General_adapter() : RecyclerView.Adapter<General_adapter.mainViewHolder>() {
 
 
-//
-//      var model: List<Month> = listOf()
-//        set(value) {
-//            field = value
-//            notifyDataSetChanged()
-//        }
+
+      var model: List<Model> = listOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
 
 //    var jalgas: List<Month> = arrayListOf()
@@ -55,28 +55,28 @@ class General_adapter(var list:ArrayList<Month2>) : RecyclerView.Adapter<General
     }
 
     override fun getItemCount(): Int =
-        list.size
+        model.size
 
-//    fun submitlist(list: List<Month>) {
-//
-//       model = list
-//
-//    }
+    fun submitlist(list: List<Model>) {
+
+       model = list
+
+    }
 
     override fun onBindViewHolder(holder: mainViewHolder, position: Int) {
-        holder.name.text = list[position].name
-        holder.id_name.text = list[position].id_name
+        holder.name.text = model[position].name
+        holder.id_name.text = model[position].id_name
 
-        holder.address_name.text = list[position].address_name
+        //holder.address_name.text = model[position].address_name
 
         //holder.bind(list[position])
     }
 
-
-    fun deleteItem(position: Int){
-
-        list.removeAt(position)
-        notifyItemRemoved(position)
-    }
+//
+//    fun deleteItem(position: Int){
+//
+//        list.removeAt(position)
+//        notifyItemRemoved(position)
+//    }
 
 }

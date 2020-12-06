@@ -1,8 +1,8 @@
 package com.example.jalgasplan.model
 
 data class Model (
-     val id: Int = 0,
-     val username: String = "jalgas",
-    val lastname: String = "",
-    val idFirebase:String = ""
+    val id_name: String = "",
+    val name: String = "",
+    val idFirebase:String = "",
+    val address_name:String =""
 )

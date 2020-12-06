@@ -2,7 +2,7 @@ package com.example.jalgasplan.database
 
 import androidx.lifecycle.LiveData
 import com.example.jalgasplan.model.Model
-import com.example.jalgasplan.utils.REF_DATABASE
+
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -24,13 +24,13 @@ class AllModelsLiveData :LiveData<List<Model>>() {
   }
 
   override fun onInactive() {
-REF_DATABASE.removeEventListener(listener)
+//REF_DATABASE.removeEventListener(listener)
     super.onInactive()
 
   }
 
   override fun onActive() {
-    REF_DATABASE.addValueEventListener(listener)
+    //REF_DATABASE.addValueEventListener(listener)
     super.onActive()
   }
 }

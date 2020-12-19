@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.startFragment.StartFragment">
+    android:layout_margin="4dp"
+        tools:context=".screens.startFragment.StartFragment">
 
     <TextView
         android:id="@+id/textView"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/app_margin"
         android:inputType="none"
-        android:text="@string/start_label"
+                android:text="@string/start_label"
         android:textSize="@dimen/app_large_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,10 +48,16 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_width="@dimen/btn_width"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
+               android:visibility="visible"
         android:layout_margin="@dimen/app_margin"
-        android:text="@string/start_btn_login"
+        android:text="@string/btn_add"
+        android:paddingLeft="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="#6200ea"
+        android:layout_height="36dp"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_password" />

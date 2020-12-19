@@ -15,7 +15,7 @@ import com.example.jalgasplan.databinding.FragmentElectroBinding
 class ElectroFragment : Fragment() {
 
     private var _binding: FragmentElectroBinding? = null
-  private  val mBinding get() = _binding!!
+    private val mBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,18 +29,18 @@ class ElectroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var value = arrayOf<String>(
-            "yanvar",
-            "fevral",
-            "mart",
-            "aprel",
-            "may",
-            "iyun",
-            "iyul",
-            "avgust",
-            "sentyabr",
-            "oktyabr",
-            "noyabr",
-            "dekabr"
+            "Январь",
+            "Февраль",
+            "Март",
+            "Апрель",
+            "Май",
+            "Июнь",
+            "Июль",
+            "Август",
+            "Сентябрь",
+            "Октябрь",
+            "Ноябрь",
+            "Декабрь"
         )
 
         val mListViewElectro = view.findViewById<ListView>(R.id.electro_listView)
@@ -55,7 +55,8 @@ class ElectroFragment : Fragment() {
                 findNavController().navigate(action)
             }
             if (position == 1) {
-                var action = ElectroFragmentDirections.actionElectroFragment2ToGeneralFragment("fevral")
+                var action =
+                    ElectroFragmentDirections.actionElectroFragment2ToGeneralFragment("fevral")
                 findNavController().navigate(action)
             }
             if (position == 2) {
@@ -114,5 +115,6 @@ class ElectroFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+        _binding = null
     }
 }

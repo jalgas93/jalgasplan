@@ -18,22 +18,27 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class GeneralFragmentViewModel() : ViewModel() {
-
     private lateinit var database: FirebaseFirestore
-        //val allModels: MutableLiveData<ArrayList<Model>> = MutableLiveData()
-
     var _allModels = MutableLiveData<ArrayList<Model>>()
     val allModels: MutableLiveData<ArrayList<Model>>
         get() = _allModels
+
     init {
         database = FirebaseFirestore.getInstance()
     }
+
     fun signOut() {
         REPOSITORY.signOut()
 
     }
 
-     fun getData(id:String){
+    fun deleteItem(model: Model, id: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            REPOSITORY.delete(model, id)
+        }
+    }
+
+    fun getData(id: String) {
         database.collection(id)
             .get()
             .addOnSuccessListener { result ->
@@ -42,10 +47,9 @@ class GeneralFragmentViewModel() : ViewModel() {
                     Log.d("jalgas6", "${id.toString()} => ${document.data}")
                     model.add(
                         Model(
-
+                            document.get("idFirebase") as String,
                             document.get("id_name") as String,
-                            document.get("name") as String,
-                            document.get("address_name") as String
+                            document.get("name") as String
                         )
                     )
                 }
@@ -54,8 +58,6 @@ class GeneralFragmentViewModel() : ViewModel() {
                 _allModels.value = model
                 var a = allModels.value
                 Log.d("jalgas7", a.toString())
-
-
             }
             .addOnFailureListener { exception ->
                 Log.d("jalgas", "Error getting documents: ", exception)

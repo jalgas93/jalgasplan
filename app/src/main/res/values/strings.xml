@@ -32,4 +32,8 @@
     <string name="add">Добавить</string>
     <string name="zavxozName">Имя Завхоза</string>
     <string name="zavxoz">Завхоз</string>
+    <string name="text">Название</string>
+    <string name="phone">Телефон</string>
+    <string name="search">Search</string>
+    <string name="btn_add">Добавить</string>
 </resources>

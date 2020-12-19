@@ -1,40 +1,38 @@
 package com.example.jalgasplan.screens.generalFragment
 
-import android.app.Application
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
+import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.jalgasplan.R
 import com.example.jalgasplan.adapter.General_adapter
 import com.example.jalgasplan.database.FirebaseRepository
 import com.example.jalgasplan.databinding.FragmentGeneralBinding
+import com.example.jalgasplan.model.Main_contact_model
 import com.example.jalgasplan.model.Model
-import com.example.jalgasplan.screens.MainFragment.MainFragmentDirections
-import com.example.jalgasplan.utils.DataSource
 import com.example.jalgasplan.utils.REPOSITORY
-import com.google.firebase.firestore.*
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_general.*
+import kotlinx.android.synthetic.main.item_main.*
+import kotlinx.android.synthetic.main.item_main_contact.*
 
 
 class GeneralFragment() : Fragment() {
 
     private val args: GeneralFragmentArgs by navArgs()
-    private lateinit var database: FirebaseFirestore
-    private var _binding: FragmentGeneralBinding? = null
-    private val mBinding get() = _binding
+     private var _binding: FragmentGeneralBinding? = null
+    private val mBinding get() = _binding!!
     private lateinit var mViewModel: GeneralFragmentViewModel
     private lateinit var mAdapter: General_adapter
     private lateinit var mRecyclerView: RecyclerView
@@ -52,10 +50,8 @@ class GeneralFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        REPOSITORY = FirebaseRepository()
 
-        initialization()
-        args.id?.let { mViewModel.getData(it) }
+
         fl_button.setOnClickListener {
             val action = GeneralFragmentDirections.actionGeneralFragmentToAddDataFragment(args.id)
             findNavController().navigate(action)
@@ -64,7 +60,37 @@ class GeneralFragment() : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        database = FirebaseFirestore.getInstance()
+        REPOSITORY = FirebaseRepository()
+        initialization()
+        deleteItem()
+        args.id?.let { mViewModel.getData(it) }
+        Log.i("id",args.id.toString())
+    }
+
+    private fun deleteItem() {
+        mAdapter = General_adapter()
+        mRecyclerView = mBinding.RvGeneral
+        mRecyclerView.adapter = mAdapter
+        mAdapter.setItemClick {
+            var b = it.name
+            var s = it.id_name
+            var d = it.idFirebase
+
+            val dialog: AlertDialog = AlertDialog.Builder(requireContext())
+                .setMessage("Вы уверены что хотите удалить ? ")
+                .setTitle("Удалить")
+                .setPositiveButton("yes") { _, _ ->
+                    mViewModel.deleteItem(
+                        Model( d, s, b),
+                        args.id.toString()
+
+                    )
+                    mViewModel.getData(args.id.toString())
+                }
+                .setNegativeButton("no", null)
+                .create()
+            dialog.show()
+        }
     }
 
     private fun initialization() {
@@ -73,15 +99,20 @@ class GeneralFragment() : Fragment() {
         mAdapter = General_adapter()
         mRecyclerView = mBinding!!.RvGeneral
         mRecyclerView.adapter = mAdapter
+        mRecyclerView.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                DividerItemDecoration.VERTICAL
+            )
+        )
         mObserverList = Observer {
             val list = it
             mAdapter.submitlist(list)
             Log.d("jalgas4", list.toString())
         }
         mViewModel =
-            ViewModelProvider(this, generalFactory).get(GeneralFragmentViewModel::class.java)
+            ViewModelProvider(this).get(GeneralFragmentViewModel::class.java)
         mViewModel.allModels.observe(requireActivity(), mObserverList)
-
     }
 
     override fun onDestroy() {
@@ -89,6 +120,5 @@ class GeneralFragment() : Fragment() {
         _binding = null
         mViewModel.allModels.removeObserver(mObserverList)
         mRecyclerView.adapter = null
-
     }
 }

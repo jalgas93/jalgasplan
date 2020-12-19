@@ -1,119 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Spinner xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_margin="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.appToMainContactFragment.AddToMainContactFragment">
+<EditText
+    android:id="@+id/et_text"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:textSize="20dp"
+    android:layout_margin="4dp"
+    android:hint="@string/text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/et_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_text"
+        android:layout_width="match_parent"
+        android:hint="@string/phone"
+        android:layout_margin="4dp"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/add_data"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_phone"
+        android:layout_width="wrap_content"
+        android:background="#FFFFFF"
+        android:text="@string/btn_add"
+        android:paddingLeft="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="#6200ea"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="16dp"
+        />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <EditText
-        android:id="@+id/sideName"
-        android:hint="@string/sideName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/fider1"
-        android:hint="@string/fider1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/tp1"
-        android:hint="@string/tp1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/fider2"
-        android:hint="@string/fider2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/tp2"
-        android:hint="@string/tp2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/upr"
-        android:hint="@string/upravlenie"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/res"
-        android:hint="@string/res"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/resMobile_1"
-        android:hint="@string/resMobile_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/resMobile_2"
-        android:hint="@string/resMobile_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/rut_1"
-        android:hint="@string/rut_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/rut_2"
-        android:hint="@string/rut_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/master_1"
-        android:hint="@string/master_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/masterName_1"
-        android:hint="@string/masterName_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/master_2"
-        android:hint="@string/master_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/masterName_2"
-        android:hint="@string/masterName_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/oxranaName"
-        android:hint="@string/oxranaName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/oxrana"
-        android:hint="@string/oxrana"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/zavxozName"
-            android:hint="@string/zavxozName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/zavxoz"
-            android:hint="@string/zavxoz"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/add_mainContact"
-            android:text="@string/add"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-</Spinner>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

@@ -2,288 +2,49 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_margin="4dp"
-    android:layout_height="match_parent">
-
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
 
     <TextView
-        android:id="@+id/sideName2"
+        android:id="@+id/Main_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textAllCaps="true"
-        android:textSize="16dp"
+             android:layout_margin="4dp"
+        android:textStyle="bold"
+        android:hint="Название мастера или РЭС, РУТ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/phone"
+        android:inputType="phone"
+        android:autoLink="all"
+        android:linksClickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+              android:layout_margin="4dp"
+
+        android:text="Номер мобильного телефона"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sideName">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Фидер-1" />
-
-        <TextView
-            android:id="@+id/fider1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tp1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ТП"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout1" />
-
-    <TextView
-        android:id="@+id/tp1_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Main_text" />
+    <Button
+        android:id="@+id/btn_call"
+        app:layout_constraintBottom_toBottomOf="@id/phone"
+        app:layout_constraintEnd_toEndOf="@id/phone"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/call_24"
+        android:layout_width="30dp"
+                android:layout_height="30dp"/>
+    <Button
+        android:id="@+id/delete"
+        android:layout_margin="4dp"
+        android:padding="8dp"
+        android:paddingLeft="8dp"
+        android:background="@drawable/delete_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tp1"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout1" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tp1">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Фидер2" />
-
-        <TextView
-            android:id="@+id/fider2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tp2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ТП"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
-
-    <TextView
-        android:id="@+id/tp2_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tp2"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tp2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="РЭС" />
-        <TextView
-            android:id="@+id/res"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
-    <LinearLayout
-
-        android:id="@+id/linearLayout4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="РЭС УзМобайл" />
-
-    <TextView
-        android:id="@+id/resMobile_1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="РЭС УзМобайл 2" />
-
-    <TextView
-        android:id="@+id/resMobile_2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="РУТ1" />
-
-    <TextView
-        android:id="@+id/rut_1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="РУТ 2" />
-
-    <TextView
-        android:id="@+id/rut_2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Master 1" />
-
-    <TextView
-        android:id="@+id/master_1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Master 2" />
-
-        <TextView
-            android:id="@+id/master_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Управление РЭС" />
-
-        <TextView
-            android:id="@+id/upr"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Охрана" />
-
-        <TextView
-            android:id="@+id/oxranaName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout11"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Завхоз" />
-
-        <TextView
-            android:id="@+id/zavxoz"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
-    <TextView
-        android:id="@id/text"
-        android:text="Примечание"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/text_word"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="32dp"
+        android:layout_height="32dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

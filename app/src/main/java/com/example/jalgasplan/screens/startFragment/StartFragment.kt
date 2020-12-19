@@ -13,18 +13,15 @@ import kotlinx.android.synthetic.main.fragment_start.*
 
 class StartFragment : Fragment() {
 
-
-private var _binding:FragmentStartBinding? = null
-private val mBinding get() = _binding!!
-private lateinit var mViewModel:StartFragmentViewModel
-
+    private var _binding: FragmentStartBinding? = null
+    private val mBinding get() = _binding!!
+    private lateinit var mViewModel: StartFragmentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         _binding = FragmentStartBinding.inflate(layoutInflater, container, false)
         return mBinding.root
     }
@@ -35,13 +32,9 @@ private lateinit var mViewModel:StartFragmentViewModel
     }
 
     private fun initialization() {
-
         mViewModel = ViewModelProvider(this).get(StartFragmentViewModel::class.java)
         btn_login.setOnClickListener {
-
-
         }
-
     }
 
     override fun onDestroyView() {

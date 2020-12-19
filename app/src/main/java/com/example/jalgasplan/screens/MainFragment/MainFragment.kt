@@ -22,7 +22,6 @@ class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val mBinding get() = _binding!!
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,11 +31,8 @@ class MainFragment : Fragment() {
         return mBinding?.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         var value = arrayOf<String>(
             "Январь",
             "Февраль",
@@ -51,7 +47,6 @@ class MainFragment : Fragment() {
             "Ноябрь",
             "Декабрь"
         )
-
         val mListView = view.findViewById<ListView>(R.id.ListView)
         var adapter =
             ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, value)
@@ -121,9 +116,7 @@ class MainFragment : Fragment() {
                 findNavController().navigate(action)
             }
 
-
         }
-
 
     }
 
@@ -131,7 +124,6 @@ class MainFragment : Fragment() {
         super.onStart()
 
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

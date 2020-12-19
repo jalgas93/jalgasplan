@@ -9,22 +9,22 @@ android:icon="@drawable/home_24"
         />
     <item
         android:id="@+id/mainFragment"
-        android:title="Konditsioner"
+        android:title="Кондиционер"
         android:icon="@drawable/cool2"
         />
     <item
         android:id="@+id/electroFragment2"
-    android:title="Electro Oborudovanie"
+    android:title="Электро"
         android:icon="@drawable/electro"
         />
     <item
         android:id="@+id/konturFragment"
-    android:title="Kontur"
+    android:title="Заземление"
         android:icon="@drawable/signal__antena"
     />
     <item
         android:id="@+id/contactFragment"
-        android:title="Contact"
+        android:title="Контакты"
         android:icon="@drawable/contact"/>
         />
 

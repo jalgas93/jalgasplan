@@ -66,7 +66,7 @@ class Contact_adapter : RecyclerView.Adapter<Contact_adapter.ContactViewHolder>(
             }
         }
     }
-
+//commitgit
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         var view = LayoutInflater.from(parent.context).inflate(R.layout.item_contact, parent, false)
         return ContactViewHolder(view)

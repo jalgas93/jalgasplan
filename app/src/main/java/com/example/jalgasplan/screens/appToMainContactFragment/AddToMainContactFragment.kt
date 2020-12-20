@@ -46,9 +46,7 @@ class AddToMainContactFragment : Fragment() {
             args.sideName?.let {
                 mViewModel.insertAddMainContact(
                     Main_contact_model(name = text, phone = phone), it
-
-                )
-            }
+                )            }
             Toast.makeText(requireContext(), "Данные добавлено", Toast.LENGTH_SHORT)
                 .show()
             var action =

@@ -16,11 +16,9 @@ import kotlinx.coroutines.launch
 
 class MainContactViewModel : ViewModel() {
     private lateinit var database: FirebaseFirestore
-
     init {
         database = FirebaseFirestore.getInstance()
     }
-
     val contactLiveData: MutableLiveData<ArrayList<Main_contact_model>> = MutableLiveData()
     fun getContactData(sideName: String) {
         database.collection(sideName)

@@ -115,14 +115,7 @@ class MainFragment : Fragment() {
                 val action = MainFragmentDirections.actionMainFragmentToGeneralFragment("Dekabr")
                 findNavController().navigate(action)
             }
-
         }
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-
     }
 
     override fun onDestroyView() {

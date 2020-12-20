@@ -20,27 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-
-
-
-// Create a new user with a first and last name
-//        val user: MutableMap<String, Any> = HashMap()
-//        user["first"] = "Jalgas"
-//        user["last"] = "Ungarbaev"
-//        user["department"] = "GGE"
-
-
-        // Add a new document with a generated ID
-
-        // Add a new document with a generated ID
-//        db.collection("users")
-//                .add(user)
-//                .addOnSuccessListener { documentReference -> Log.d("jalgas", "DocumentSnapshot added with ID: " + documentReference.id) }
-//                .addOnFailureListener { e -> Log.w("jalgasError", "Error adding document", e) }
-
-        var navView: BottomNavigationView = findViewById(R.id.nav_bottom)
+      var navView: BottomNavigationView = findViewById(R.id.nav_bottom)
         val navController = Navigation.findNavController(this,R.id.fragmentContainer)
         navView.setupWithNavController(navController)
 

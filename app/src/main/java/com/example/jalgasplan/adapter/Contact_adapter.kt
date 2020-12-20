@@ -13,38 +13,38 @@ import kotlinx.android.synthetic.main.item_contact.view.*
 
 class Contact_adapter : RecyclerView.Adapter<Contact_adapter.ContactViewHolder>() {
 
-    var model: ArrayList<Contact> = ArrayList()
+    var model: List<Contact> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    var search: ArrayList<Contact> = arrayListOf()
+   // var search: ArrayList<Contact> = arrayListOf()
 
-    fun search(list: ArrayList<Contact>) {
-        search.clear()
-        search.addAll(list)
-        filter("")
-        notifyDataSetChanged()
-        Log.i("jalgas",filter("").toString())
+//    fun search(list: List<Contact>) {
+//        search.clear()
+//        search.addAll(list)
+//        filter("")
+//        notifyDataSetChanged()
+//        Log.i("jalgas",filter("").toString())
+//
+//    }
 
-    }
-
-     fun filter(query: String) {
-        model.clear()
-        search.forEach {
-            if (it.sideName.contains(query, ignoreCase = true) || it.name.contains(
-                    query,
-                    ignoreCase = true
-                )
-            ) {
-                model.add(it)
-            }else{
-
-            }
-        }
-        notifyDataSetChanged()
-    }
+//     fun filter(query: String) {
+//        model.clear()
+//        search.forEach {
+//            if (it.sideName.contains(query, ignoreCase = true) || it.name.contains(
+//                    query,
+//                    ignoreCase = true
+//                )
+//            ) {
+//                model.add(it)
+//            }else{
+//
+//            }
+//        }
+//        notifyDataSetChanged()
+//    }
 
     private lateinit var itemClick: (Contact) -> Unit
     fun setItemClick(itemClick: (contact: Contact) -> Unit) {
@@ -71,10 +71,10 @@ class Contact_adapter : RecyclerView.Adapter<Contact_adapter.ContactViewHolder>(
         var view = LayoutInflater.from(parent.context).inflate(R.layout.item_contact, parent, false)
         return ContactViewHolder(view)
     }
-////
-//    fun sumbitlist(list: ArrayList<Contact>) {
-//        model = list
-//    }
+//
+    fun sumbitlist(list: List<Contact>) {
+        model = list
+    }
 
     override fun getItemCount() =
         model.size

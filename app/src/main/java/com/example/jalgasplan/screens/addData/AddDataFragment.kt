@@ -38,17 +38,9 @@ class AddDataFragment : Fragment() {
 
         add.setOnClickListener {
             initialization()
-
         }
-
     }
-
-    override fun onResume() {
-        super.onResume()
-        // database = FirebaseFirestore.getInstance()
-    }
-
-    private fun initialization() {
+     private fun initialization() {
         mViewModel = ViewModelProvider(requireActivity()).get(AddDataFragmentViewModel::class.java)
         var sideName = mBinding.name.text.toString().trim()
         var Name = mBinding.name.text.toString().trim()
@@ -64,7 +56,6 @@ class AddDataFragment : Fragment() {
         } else {
             Toast.makeText(requireContext(), "Все поля должны быть заполнены", Toast.LENGTH_LONG)
                 .show()
-
         }
     }
 

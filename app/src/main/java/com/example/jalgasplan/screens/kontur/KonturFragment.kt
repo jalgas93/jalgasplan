@@ -14,7 +14,6 @@ import com.example.jalgasplan.databinding.FragmentKonturBinding
 class KonturFragment : Fragment() {
     private var _binding: FragmentKonturBinding? = null
     private val mBinding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,7 +22,6 @@ class KonturFragment : Fragment() {
         _binding = FragmentKonturBinding.inflate(layoutInflater, container, false)
         return mBinding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -96,9 +94,7 @@ class KonturFragment : Fragment() {
                 findNavController().navigate(action)
             }
         }
-
     }
-
     override fun onDestroy() {
         super.onDestroy()
     }

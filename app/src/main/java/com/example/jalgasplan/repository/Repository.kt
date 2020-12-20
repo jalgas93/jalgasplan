@@ -6,20 +6,18 @@ import com.example.jalgasplan.model.Contact
 import com.example.jalgasplan.model.Main_contact_model
 import com.example.jalgasplan.model.Model
 
-interface
-Repository {
-
-
+interface Repository {
     suspend fun insert(model: Model,id:String)
     suspend fun delete(model: Model, id:String)
-
-    fun connectToDatabase(onSuccess: () -> Unit, onFail: (String) -> Unit)
-
-    fun signOut()
-    suspend fun insertContact(mainMain_contact_model: Main_contact_model,id: String)
+       suspend fun insertContact(mainMain_contact_model: Main_contact_model,id: String)
     suspend fun deleteContact(mainMain_contact_model: Main_contact_model,id: String)
-    suspend fun contact(list:MutableList<Contact>)
-    
+    suspend fun roomInsert(contact:Contact)
+        var bs_liveData:LiveData<List<Contact>>
+    suspend fun roomDelete(contact:Contact)
+    suspend fun insertDataLiveData(contact:ArrayList<Contact>)
+
+   // var searchLiveData:LiveData<List<Contact>>
+
 
 
 

@@ -12,12 +12,5 @@ class AddDataFragmentViewModel(application: Application) : AndroidViewModel(appl
     fun insert(model: Model,id:String) =
         viewModelScope.launch(Dispatchers.IO) {
             REPOSITORY.insert(model,id)
-
-
-
-
-
         }
-
-
 }

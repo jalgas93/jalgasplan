@@ -25,7 +25,6 @@ class StartFragment : Fragment() {
         _binding = FragmentStartBinding.inflate(layoutInflater, container, false)
         return mBinding.root
     }
-
     override fun onStart() {
         super.onStart()
         initialization()
@@ -36,7 +35,6 @@ class StartFragment : Fragment() {
         btn_login.setOnClickListener {
         }
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

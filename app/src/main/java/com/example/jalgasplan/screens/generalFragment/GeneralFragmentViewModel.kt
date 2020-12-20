@@ -22,17 +22,10 @@ class GeneralFragmentViewModel() : ViewModel() {
     var _allModels = MutableLiveData<ArrayList<Model>>()
     val allModels: MutableLiveData<ArrayList<Model>>
         get() = _allModels
-
     init {
         database = FirebaseFirestore.getInstance()
     }
-
-    fun signOut() {
-        REPOSITORY.signOut()
-
-    }
-
-    fun deleteItem(model: Model, id: String) {
+      fun deleteItem(model: Model, id: String) {
         viewModelScope.launch(Dispatchers.IO) {
             REPOSITORY.delete(model, id)
         }

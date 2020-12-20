@@ -2,25 +2,50 @@ package com.example.jalgasplan.screens.contact_items
 
 import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.jalgasplan.model.Contact
-import com.example.jalgasplan.utils.DataSource
+import com.example.jalgasplan.repository.MainRepository
 import com.example.jalgasplan.utils.REPOSITORY
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ContactViewModel(application: Application) : AndroidViewModel(application) {
-    var contact: MutableLiveData<ArrayList<Contact>> = MutableLiveData()
+class ContactViewModel(var repository: MainRepository) :ViewModel() {
+    var contactLiveData: MutableLiveData<ArrayList<Contact>> = MutableLiveData()
 
+    val liveData = REPOSITORY.bs_liveData
+
+
+    fun insertDataLive(contact: ArrayList<Contact>) {
+        viewModelScope.launch(Dispatchers.IO) {
+            REPOSITORY.insertDataLiveData(contact)
+        }
+    }
+
+
+
+    fun insertData(contact: Contact) {
+        viewModelScope.launch(Dispatchers.IO) {
+            REPOSITORY.roomInsert(contact)
+        }
+    }
+
+    fun deleteData(contact: Contact) {
+        viewModelScope.launch(Dispatchers.IO) {
+            REPOSITORY.roomDelete(contact)
+        }
+    }
+
+//    fun insert(contact: ArrayList<Contact>){
+//        viewModelScope.launch (Dispatchers.IO){
+//            repository.roomInsert(contact)
+//        }
+//    }
 
     fun contact() {
 
         var list = ArrayList<Contact>()
 
-        Log.i("jalgas", list.toString())
+
 
         for (i in 0..165) {
 
@@ -1364,12 +1389,16 @@ class ContactViewModel(application: Application) : AndroidViewModel(application)
                 list.add(contact)
 
             }
-            contact.value = list
+            contactLiveData.value = list
+            var a = contactLiveData.value
+            Log.i("jalgaslivedata", a.toString())
 
 
         }
     }
 }
+
+
 
 
 

@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -13,19 +12,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jalgasplan.adapter.General_adapter
 import com.example.jalgasplan.database.FirebaseRepository
 import com.example.jalgasplan.databinding.FragmentGeneralBinding
-import com.example.jalgasplan.model.Main_contact_model
 import com.example.jalgasplan.model.Model
 import com.example.jalgasplan.utils.REPOSITORY
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_general.*
-import kotlinx.android.synthetic.main.item_main.*
-import kotlinx.android.synthetic.main.item_main_contact.*
 
 
 class GeneralFragment() : Fragment() {
@@ -39,6 +32,7 @@ class GeneralFragment() : Fragment() {
     private lateinit var mObserverList: Observer<ArrayList<Model>>
     private lateinit var generalFactory: GeneralFactory
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,22 +45,16 @@ class GeneralFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        REPOSITORY = FirebaseRepository(requireContext())
+        initialization()
+        deleteItem()
+        args.id?.let { mViewModel.getData(it) }
+        Log.i("id",args.id.toString())
         fl_button.setOnClickListener {
             val action = GeneralFragmentDirections.actionGeneralFragmentToAddDataFragment(args.id)
             findNavController().navigate(action)
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-        REPOSITORY = FirebaseRepository()
-        initialization()
-        deleteItem()
-        args.id?.let { mViewModel.getData(it) }
-        Log.i("id",args.id.toString())
-    }
-
     private fun deleteItem() {
         mAdapter = General_adapter()
         mRecyclerView = mBinding.RvGeneral
@@ -75,7 +63,6 @@ class GeneralFragment() : Fragment() {
             var b = it.name
             var s = it.id_name
             var d = it.idFirebase
-
             val dialog: AlertDialog = AlertDialog.Builder(requireContext())
                 .setMessage("Вы уверены что хотите удалить ? ")
                 .setTitle("Удалить")
@@ -83,7 +70,6 @@ class GeneralFragment() : Fragment() {
                     mViewModel.deleteItem(
                         Model( d, s, b),
                         args.id.toString()
-
                     )
                     mViewModel.getData(args.id.toString())
                 }
@@ -92,7 +78,6 @@ class GeneralFragment() : Fragment() {
             dialog.show()
         }
     }
-
     private fun initialization() {
         setHasOptionsMenu(true)
         generalFactory = GeneralFactory()

@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp">
+    android:layout_margin="@dimen/four_dp">
 
     <TextView
         android:id="@+id/Main_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-             android:layout_margin="4dp"
+             android:layout_margin="@dimen/four_dp"
         android:textStyle="bold"
         android:hint="Название мастера или РЭС, РУТ"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
         android:linksClickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-              android:layout_margin="4dp"
+              android:layout_margin="@dimen/four_dp"
 
         android:text="Номер мобильного телефона"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,20 +31,20 @@
         android:id="@+id/btn_call"
         app:layout_constraintBottom_toBottomOf="@id/phone"
         app:layout_constraintEnd_toEndOf="@id/phone"
-        android:layout_marginEnd="70dp"
+        android:layout_marginEnd="@dimen/margin_end"
         android:background="@drawable/call_24"
-        android:layout_width="30dp"
-                android:layout_height="30dp"/>
+        android:layout_width="@dimen/thirty_dp"
+                android:layout_height="@dimen/thirty_dp"/>
     <Button
         android:id="@+id/delete"
-        android:layout_margin="4dp"
-        android:padding="8dp"
-        android:paddingLeft="8dp"
+        android:layout_margin="@dimen/four_dp"
+        android:padding="@dimen/eight_dp"
+        android:paddingLeft="@dimen/eight_dp"
         android:background="@drawable/delete_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="32dp"
-        android:layout_height="32dp"/>
+        android:layout_width="@dimen/thirty_dp"
+        android:layout_height="@dimen/thirty_dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

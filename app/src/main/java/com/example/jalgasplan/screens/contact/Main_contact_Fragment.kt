@@ -1,6 +1,7 @@
 package com.example.jalgasplan.screens.contact
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,7 +45,16 @@ class Main_contact_Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-          addMainContact.setOnClickListener {
+
+        mAdapter = Main_contact_adapter(requireContext())
+        mRecyclerView = mBinding.rvMainContact
+
+        mRecyclerView.adapter = mAdapter
+        REPOSITORY = FirebaseRepository(requireContext())
+        viewManager = LinearLayoutManager(requireContext())
+        initialization()
+        deleteItem()
+        addMainContact.setOnClickListener {
             var action =
                 Main_contact_FragmentDirections.actionMainContactFragmentToAddToMainContactFragment(
                     sideName = args.sideName
@@ -52,10 +62,8 @@ class Main_contact_Fragment : Fragment() {
             findNavController().navigate(action)
         }
     }
+
     private fun deleteItem() {
-        mAdapter = Main_contact_adapter(requireContext())
-        mRecyclerView = mBinding.rvMainContact
-        mRecyclerView.adapter = mAdapter
         mAdapter.setItemClickDelete {
             var a = it.idContact_firebase
             var b = it.name
@@ -75,19 +83,8 @@ class Main_contact_Fragment : Fragment() {
             dialog.show()
         }
     }
-    override fun onResume() {
-        super.onResume()
-        REPOSITORY = FirebaseRepository(requireContext())
-        initialization()
-        deleteItem()
-        args.sideName?.let { mViewModel.getContactData(it) }
-          }
 
     private fun initialization() {
-        mAdapter = Main_contact_adapter(requireContext())
-        mRecyclerView = mBinding.rvMainContact
-        mRecyclerView.adapter = mAdapter
-        viewManager = LinearLayoutManager(requireContext())
         mRecyclerView.apply {
             adapter = mAdapter
             layoutManager = viewManager
@@ -101,15 +98,16 @@ class Main_contact_Fragment : Fragment() {
         mObervableList = Observer {
             var list = it
             mAdapter.sumbitList(list)
+
         }
         mViewModel = ViewModelProvider(this).get(MainContactViewModel::class.java)
         mViewModel.contactLiveData.observe(requireActivity(), mObervableList)
+        args.sideName?.let { mViewModel.getContactData(it) }
     }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-        mViewModel.contactLiveData.removeObserver(mObervableList)
-        mRecyclerView.adapter = null
+       // mViewModel.contactLiveData.removeObserver(mObervableList)
+       // mRecyclerView.adapter = null
     }
 }

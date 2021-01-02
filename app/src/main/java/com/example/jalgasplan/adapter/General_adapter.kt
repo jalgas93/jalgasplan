@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jalgasplan.R
 import com.example.jalgasplan.model.Model
+import kotlinx.android.synthetic.main.fragment_add_data.view.*
 import kotlinx.android.synthetic.main.item_main.view.*
+
 
 
 class General_adapter() : RecyclerView.Adapter<General_adapter.MainViewHolder>() {
@@ -24,12 +26,18 @@ class General_adapter() : RecyclerView.Adapter<General_adapter.MainViewHolder>()
     }
 
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var id_name: TextView = itemView.side_name
-        var name: TextView = itemView.name
+       // var senside: TextView = itemView.add_senside
+        //var senside_name: TextView = itemView.add_senside_name
+        var tv_sideName = itemView.tv_sideName
+        var tv_side_number = itemView.tv_side_number
+
+
 
         fun bind(model: Model) {
-            id_name.text = model.id_name
-            name.text = model.name
+           // senside.text = model.id_name
+           // senside_name.text = model.name
+            tv_sideName.text = model.name
+            tv_side_number.text = model.id_name
             itemView.btn_delete.setOnClickListener {
 
                 itemClickk.invoke(model)

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
        <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/side_name"
+        android:id="@+id/tv_side_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -26,12 +26,12 @@
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/name"
+        android:id="@+id/tv_sideName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         app:layout_constraintStart_toEndOf="@id/image"
-        app:layout_constraintTop_toBottomOf="@id/side_name" />
+        app:layout_constraintTop_toBottomOf="@id/tv_side_number" />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_delete"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,5 +41,12 @@
         android:padding="8dp"
         android:layout_width="32dp"
         android:layout_height="32dp"/>
+    <CheckBox
+        android:id="@+id/checkbox"
+        app:layout_constraintEnd_toStartOf="@id/btn_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

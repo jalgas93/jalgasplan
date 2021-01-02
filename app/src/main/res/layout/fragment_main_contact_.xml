@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="4dp"
+    android:layout_margin="@dimen/four_dp"
     tools:context=".screens.contact.Main_contact_Fragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_main_contact"
-        android:layout_margin="4dp"
+        android:layout_margin="@dimen/four_dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addMainContact"
-        android:layout_width="56dp"
+        android:layout_width="@dimen/fiftysix_dp"
 
-        android:layout_height="56dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#6200ea"
+        android:layout_height="@dimen/fiftysix_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:layout_marginBottom="@dimen/sixteen_dp"
+        android:backgroundTint="@color/add_color"
         android:src="@drawable/add_56"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

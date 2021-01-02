@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
 
 
     <item
         android:id="@+id/startFragment"
-android:icon="@drawable/home_24"
+        android:icon="@drawable/call_24"
         android:title="home"
+
         />
     <item
         android:id="@+id/mainFragment"
-        android:title="Кондиционер"
         android:icon="@drawable/cool2"
-        />
+        android:title="Кондиционер" />
+
     <item
         android:id="@+id/electroFragment2"
-    android:title="Электро"
         android:icon="@drawable/electro"
-        />
+        android:title="Электро" />
     <item
         android:id="@+id/konturFragment"
-    android:title="Заземление"
-        android:icon="@drawable/signal__antena"
-    />
+        android:icon="@drawable/ground"
+        android:title="Заземление" />
     <item
         android:id="@+id/contactFragment"
-        android:title="Контакты"
-        android:icon="@drawable/contact"/>
-        />
+        android:icon="@drawable/call_24"
+        android:title="Контакты" />
+
 
 </menu>

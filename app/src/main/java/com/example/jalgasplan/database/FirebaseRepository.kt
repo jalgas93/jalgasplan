@@ -2,14 +2,11 @@ package com.example.jalgasplan.database
 
 import android.content.Context
 import android.util.Log
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
+import androidx.lifecycle.*
 
 import com.example.jalgasplan.Room.BsDatabase
 import com.example.jalgasplan.Room.UserDao
-import com.example.jalgasplan.adapter.Contact_adapter
+
 import com.example.jalgasplan.model.Contact
 import com.example.jalgasplan.model.Main_contact_model
 import com.example.jalgasplan.model.Model
@@ -23,15 +20,14 @@ class FirebaseRepository(var context: Context) : Repository {
 
     private lateinit var database: FirebaseFirestore
     private lateinit var dao: UserDao
-    // private lateinit var bs_database: BsDatabase
-    private lateinit var mAdapter:Contact_adapter
+
+
 
 
     init {
         database = FirebaseFirestore.getInstance()
 
-        //  bs_database = App.getDatabase()
-        mAdapter = Contact_adapter()
+
     }
 
 
@@ -87,49 +83,27 @@ class FirebaseRepository(var context: Context) : Repository {
             .addOnFailureListener { e -> Log.i("jalgas10", "Error deleting document", e) }
     }
 
-    //    override suspend fun roomInsert(contact: ArrayList<Contact>) {
-//       dao.insertData(contact)
-//    }
-//
-    var daow = BsDatabase.getInstance(context).getDao()
-    override var bs_liveData: LiveData<List<Contact>>
-        get() = daow.getAllContact()
-        set(value) {}
+   var daow = BsDatabase.getInstance(context).getDao()
+
 
     override suspend fun roomDelete(contact: Contact) {
         var dao = BsDatabase.getInstance(context).getDao()
         dao.deleteData(contact)
     }
 
-    override suspend fun insertDataLiveData(contact: ArrayList<Contact>) {
-
-        daow.insertDataLive(contact)
-    }
-
-
-
-//    override var searchLiveData: LiveData<List<Contact>>
-//        get() = daow.search()
-//        set(value) {}
-
-
-//
+//    override suspend fun data(contact: List<Contact>) {
+//        daow.getAllContact()
+//    }
 
     override suspend fun roomInsert(contact: Contact) {
         var dao = BsDatabase.getInstance(context).getDao()
         dao.insertData(contact)
 
-
-        //  }
-        //  var dao = AppDatabase.getInstance(contex).getRoomDao()
-//    override val getAllDContact: LiveData<ArrayList<Contact>>
-//        get() = dao.contactGet()
-////
-//    override val getAllDContact: LiveData<List<Contact>>
-//        get() = dao.getData()
-//
-//    }
     }
+
+//    override var bs_liveData: MutableLiveData<List<Contact>>
+//        get() = daow.getAllContact()
+//        set(value) {}
 }
 
 

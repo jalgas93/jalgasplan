@@ -32,8 +32,7 @@ class StartFragment : Fragment() {
 
     private fun initialization() {
         mViewModel = ViewModelProvider(this).get(StartFragmentViewModel::class.java)
-        btn_login.setOnClickListener {
-        }
+
     }
     override fun onDestroyView() {
         super.onDestroyView()

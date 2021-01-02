@@ -25,7 +25,7 @@ abstract class BsDatabase:RoomDatabase() {
 
 
                 )
-                    .allowMainThreadQueries()
+
                     .createFromAsset("jalgas.db")
                     .build()
 

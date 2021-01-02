@@ -2,16 +2,14 @@ package com.example.jalgasplan.repository
 
 
 import android.content.Context
+import android.util.Log
 import com.example.jalgasplan.Room.BsDatabase
 import com.example.jalgasplan.Room.UserDao
 import com.example.jalgasplan.model.Contact
-//
-class MainRepository(){
-////    var dao=BsDatabase.getInstance(context).getDao()
-//
-//     fun roomInsert(contact: ArrayList<Contact>){
-//        dao.insertData(contact)
-//
-//    }
-//
+import com.example.jalgasplan.model.Main_contact_model
+import com.google.firebase.firestore.FirebaseFirestore
+
+
+class MainRepository() {
+
 }

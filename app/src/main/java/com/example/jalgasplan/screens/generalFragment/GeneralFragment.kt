@@ -19,6 +19,7 @@ import com.example.jalgasplan.databinding.FragmentGeneralBinding
 import com.example.jalgasplan.model.Model
 import com.example.jalgasplan.utils.REPOSITORY
 import kotlinx.android.synthetic.main.fragment_general.*
+import kotlinx.android.synthetic.main.item_main.*
 
 
 class GeneralFragment() : Fragment() {
@@ -44,10 +45,17 @@ class GeneralFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        generalFactory = GeneralFactory()
+        mAdapter = General_adapter()
+        mRecyclerView = mBinding!!.RvGeneral
+        mRecyclerView.adapter = mAdapter
+        mAdapter = General_adapter()
+        mRecyclerView = mBinding.RvGeneral
+        mRecyclerView.adapter = mAdapter
         REPOSITORY = FirebaseRepository(requireContext())
         initialization()
         deleteItem()
+        selected()
         args.id?.let { mViewModel.getData(it) }
         Log.i("id",args.id.toString())
         fl_button.setOnClickListener {
@@ -55,10 +63,15 @@ class GeneralFragment() : Fragment() {
             findNavController().navigate(action)
         }
     }
+
+    private fun selected() {
+        if (checkbox.isChecked){
+
+        }
+    }
+
     private fun deleteItem() {
-        mAdapter = General_adapter()
-        mRecyclerView = mBinding.RvGeneral
-        mRecyclerView.adapter = mAdapter
+
         mAdapter.setItemClick {
             var b = it.name
             var s = it.id_name
@@ -80,11 +93,7 @@ class GeneralFragment() : Fragment() {
     }
     private fun initialization() {
         setHasOptionsMenu(true)
-        generalFactory = GeneralFactory()
-        mAdapter = General_adapter()
-        mRecyclerView = mBinding!!.RvGeneral
-        mRecyclerView.adapter = mAdapter
-        mRecyclerView.addItemDecoration(
+              mRecyclerView.addItemDecoration(
             DividerItemDecoration(
                 requireContext(),
                 DividerItemDecoration.VERTICAL
@@ -103,7 +112,7 @@ class GeneralFragment() : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-        mViewModel.allModels.removeObserver(mObserverList)
-        mRecyclerView.adapter = null
+      //  mViewModel.allModels.removeObserver(mObserverList)
+      //  mRecyclerView.adapter = null
     }
 }

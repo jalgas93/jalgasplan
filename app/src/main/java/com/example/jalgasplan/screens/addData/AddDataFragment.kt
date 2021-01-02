@@ -16,6 +16,7 @@ import com.example.jalgasplan.screens.MainFragment.MainFragmentDirections
 import com.example.jalgasplan.screens.generalFragment.GeneralFragmentArgs
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_add_data.*
+import kotlinx.android.synthetic.main.item_main.*
 
 
 class AddDataFragment : Fragment() {
@@ -36,14 +37,14 @@ class AddDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        add.setOnClickListener {
+        btn_add_senside.setOnClickListener {
             initialization()
         }
     }
      private fun initialization() {
         mViewModel = ViewModelProvider(requireActivity()).get(AddDataFragmentViewModel::class.java)
-        var sideName = mBinding.name.text.toString().trim()
-        var Name = mBinding.name.text.toString().trim()
+         var sideName = mBinding.addSenside.text.toString().trim()
+        var Name = mBinding.addSensideName.text.toString().trim()
         if (sideName.isNotEmpty() && Name.isNotEmpty()) {
             mViewModel.insert(
                 Model(

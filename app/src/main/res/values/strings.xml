@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Notes</string>
+    <string name="app_name">MobiUZ</string>
     <string name="btn_add_note">Добавить</string>
-    <string name="start_label">Что использовать?</string>
+    <string name="start_label">Mесто для ваших идей  что можно оптимизировать ? Программа работает вкл интернете</string>
     <string name="start_btn_room">ROOM</string>
     <string name="title">Заметки</string>
     <string name="toast_enter_name">Введите имя заметки</string>
@@ -36,4 +36,5 @@
     <string name="phone">Телефон</string>
     <string name="search">Search</string>
     <string name="btn_add">Добавить</string>
+    <string name="not_found_text">"Не найдено "</string>
 </resources>

@@ -12,11 +12,10 @@ interface Repository {
        suspend fun insertContact(mainMain_contact_model: Main_contact_model,id: String)
     suspend fun deleteContact(mainMain_contact_model: Main_contact_model,id: String)
     suspend fun roomInsert(contact:Contact)
-        var bs_liveData:LiveData<List<Contact>>
+     //   var bs_liveData:MutableLiveData<List<Contact>>
     suspend fun roomDelete(contact:Contact)
-    suspend fun insertDataLiveData(contact:ArrayList<Contact>)
+//    suspend fun data(contact: List<Contact>)
 
-   // var searchLiveData:LiveData<List<Contact>>
 
 
 

@@ -7,4 +7,13 @@
     <dimen name="app_normal_text">16sp</dimen>
     <dimen name="btn_width">120dp</dimen>
     <dimen name="margin_standard">16dp</dimen>
+    <dimen name="four_dp">4dp</dimen>
+    <dimen name="sixteen_dp">16dp</dimen>
+    <dimen name="fiftysix_dp">56dp</dimen>
+    <dimen name="margin_end">70dp</dimen>
+    <dimen name="eight_dp">8dp</dimen>
+    <dimen name="thirty_dp">30dp</dimen>
+    <dimen name="fourty_dp">40dp</dimen>
+    <dimen name="twenty_dp">20dp</dimen>
+    <dimen name="two_dp">2dp</dimen>
 </resources>

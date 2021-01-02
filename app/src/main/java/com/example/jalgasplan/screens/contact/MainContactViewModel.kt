@@ -20,7 +20,9 @@ class MainContactViewModel : ViewModel() {
         database = FirebaseFirestore.getInstance()
     }
     val contactLiveData: MutableLiveData<ArrayList<Main_contact_model>> = MutableLiveData()
+
     fun getContactData(sideName: String) {
+
         database.collection(sideName)
             .get()
             .addOnSuccessListener { result ->
@@ -44,7 +46,6 @@ class MainContactViewModel : ViewModel() {
                 Log.i("jalgas", "oshibka")
             }
     }
-
     fun main_ContactDelete(mainContactModel: Main_contact_model, id: String) {
         viewModelScope.launch(Dispatchers.IO) {
             REPOSITORY.deleteContact(mainContactModel, id)
